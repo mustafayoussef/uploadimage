@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>upload image</title>
+</head>
+
+<body>
+
+
+    <!-- Inputs -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-8 m-auto">
+                <h2 class="text-white text-center font-italic font-weight-bold" >Upload Your Iamge</h2>
+                <form action="/handleForm" method="POST" class="form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control" name="title" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <label for=""></label>
+                        <input type="file" name="img">
+                    </div>
+                    <button class="btn btn-info">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Show -->
+    <div class="container">
+        <div class="row">
+            <% for( let i = 0; i < data.length; i++ ) { %>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem ;">
+                    <img src="<%= data[i].imgURL %> " class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-text py-1 text-center text-muted"> <%= data[i].title %> </h3>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
